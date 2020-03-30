@@ -1,11 +1,11 @@
-from urllib.request import urlopen as req
+from urllib.request import urlopen as req,Request
 from bs4 import BeautifulSoup as soup
 
 def GlobalCovid19():
 
 	url = 'https://www.worldometers.info/coronavirus/'
-
-	webopen = req(url)
+	
+	webopen = req(Request(url, headers={'User-Agent': 'Mozilla/5.0'}))
 	page_html = webopen.read()
 	webopen.close()
 
